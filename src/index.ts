@@ -23,12 +23,6 @@ startClient( (client) => {
             handleMessage(client, message)
         })
 
-        // listen group invitation
-        client.onAddedToGroup(({ groupMetadata: { id } }) => {
-            client.leaveGroup(id)
-        })
-    
-
         amqplib.connect(`${url}`, (err: any, conn:amqplib.Connection) => {
         if (err) throw err;
 
