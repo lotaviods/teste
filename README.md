@@ -14,4 +14,8 @@ To run use:
 
 Message format: 
 
-        {"to":"xxxxxxxxxxxxx, "message": ""}
+        {"to":"xxxxxxxxxxxxx", "message": ""}
+
+
+Formatting (using 44 country code):
+✅  447123456789
