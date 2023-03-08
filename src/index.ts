@@ -1,7 +1,7 @@
 import * as dotenv from 'dotenv'
-import { startClient } from "./messenger/handler";
+import { startClient } from "./handler/handler";
 import amqplib from 'amqplib/callback_api';
-import { handleMessage } from './messenger/handler/messageHandler';
+import { handleMessage } from './msgLogger/messageHandler';
 
 dotenv.config()
 const queue = process.env.LOTA_WA_CONSUMER_QUEUE
@@ -11,16 +11,10 @@ startClient( (client) => {
     
         console.log('[CLIENT] CLIENT Started!')
 
-        // Force it to keep the current session
-        client.onStateChanged((state) => {
-            console.log('[Client State]', state)
-            if (state === 'CONFLICT') client.forceRefocus()
-        
-        })
-
+    
         // listening on message
-        client.onMessage((message) => {
-            handleMessage(client, message)
+        client.onMessage((message: any) => {
+            handleMessage(message)
         })
 
         amqplib.connect(`${url}`, (err: any, conn:amqplib.Connection) => {

@@ -1,6 +1,5 @@
 .env
 /node_modules
 /build
-/_IGNORE_WP_HELPER
-WP_HELPER.data.json
 /conf
+/tokens
