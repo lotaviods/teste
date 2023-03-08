@@ -1,0 +1,2 @@
+LOTA_WA_CONSUMER_QUEUE="my-queue"
+LOTA_WA_CONSUMER_URL="amqp://{user}:{pass}@localhost:{port}"
