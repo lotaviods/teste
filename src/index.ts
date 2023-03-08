@@ -1,7 +1,7 @@
 import * as dotenv from 'dotenv'
 import { startClient } from "./handler/handler";
 import amqplib from 'amqplib/callback_api';
-import { handleMessage } from './msgLogger/messageHandler';
+import { handleMessage } from './msgLogger/messageLogger';
 
 dotenv.config()
 const queue = process.env.LOTA_WA_CONSUMER_QUEUE
