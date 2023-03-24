@@ -1,13 +1,12 @@
 version: "3.2"
 services:
   ts-consumer-wa-amqplib:
-    container_name: ts-consumer-wa-amqplib
+    container_name: ts-consumer-wa-amqplib-dev
     build:
       context: .
       dockerfile: ./docker/Dockerfile
     volumes:
-      - ${LOTA_WA_DATA_PATH}/conf:/usr/src/app/conf
-      - ${LOTA_WA_DATA_PATH}/tokens:/usr/src/app/tokens
+      - ./:/usr/src/app
     networks:
       - ts-consumer-wa-amqplib
     env_file:

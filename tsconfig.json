@@ -3,9 +3,13 @@
   "compilerOptions": {
     "esModuleInterop": true,
     "moduleResolution": "node",
+    "baseUrl": "./",
     "module": "ESNext",
     "target": "es5",                         
-    "lib": ["es6"],        
+    "lib": ["es6"],    
+    "paths": {
+      "*": ["./node_modules/*"]
+    },    
     "allowJs": true,
     "outDir": "build",                          
     "rootDir": "src",

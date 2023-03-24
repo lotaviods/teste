@@ -1,4 +1,4 @@
-FROM node:16-buster
+FROM node:18-buster
 
 RUN apt-get update && apt-get install -y ca-certificates \
     fonts-liberation \
