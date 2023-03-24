@@ -1,5 +1,20 @@
 version: "3.2"
 services:
+  ts-consumer-wa-amqplib:
+    container_name: ts-consumer-wa-amqplib
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    volumes:
+      - ${LOTA_WA_DATA_PATH}/conf:/usr/src/app/conf
+      - ${LOTA_WA_DATA_PATH}/tokens:/usr/src/app/tokens
+    ports:
+      - 7000:7000
+    networks:
+      - ts-consumer-wa-amqplib
+    env_file:
+      - .env
+    
   rabbitmq:
     image: rabbitmq:3-management-alpine
     container_name: 'rabbitmq'
@@ -7,11 +22,13 @@ services:
         - 5672:5672
         - 15672:15672
     volumes:
-        - .conf/rabbitmq/data/:/var/lib/rabbitmq/
-        - .conf/rabbitmq/log/:/var/log/rabbitmq
+        - ${LOTA_WA_RABBITMQ_PATH}/:/var/lib/rabbitmq/
+        - ${LOTA_WA_RABBITMQ_PATH}/log/:/var/log/rabbitmq/
+    env_file:
+      - .env
     networks:
-        - rabbitmq_go_net
+        - ts-consumer-wa-amqplib
 
 networks:
-  rabbitmq_go_net:
+  ts-consumer-wa-amqplib:
     driver: bridge

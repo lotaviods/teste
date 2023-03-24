@@ -1,2 +1,6 @@
 LOTA_WA_CONSUMER_QUEUE="my-queue"
 LOTA_WA_CONSUMER_URL="amqp://{user}:{pass}@localhost:{port}"
+LOTA_WA_RABBITMQ_PATH="~/data/rabbit"
+LOTA_WA_DATA_PATH=./data/wa
+RABBITMQ_DEFAULT_USER=user
+RABBITMQ_DEFAULT_PASS=password
